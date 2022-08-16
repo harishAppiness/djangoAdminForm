@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+  <body>
+   
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">module</th>
+            <th scope="col">setting_name</th>
+            <th scope="col">setting_value</th>
+            <th scope="col">is_enabled</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        {% block content %}
+      {% for i in allObjects %}
+        <tbody>
+          <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.module}}</td>
+            <td>{{i.setting_name}}</td>
+            <td>{{i.setting_value}}</td>
+            <td>{{i.is_enabled}}</td> 
+            <td> <a href="update/{{i.id}}"> Edit</td>
+            <td> <a href="delete/{{i.id}}"> Delete</td>
+            {%empty%}
+            {% endfor %}  
+            {% endblock content %}
+          </tr>
+        </div>  
+        </tbody>
+      </table>
+  </body>
+</html>

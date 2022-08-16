@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+  <body>
+   
+    {% block content %}
+    <form action="edit/{{appli_settings.id}}/" method='POST'>
+        <div class="mb-3">
+          <label for="id" class="form-label">id</label>
+          <input type="text" value="{{appli_settings.id}}"   name="id" class="form-control" id="id" >
+        </div>
+          <div class="mb-3">
+            <label for="module" class="form-label">Module Name</label>
+            <input type="text" value="{{appli_settings.module}}"    name="module"  class="form-control" id="module" >
+          </div>
+          <div class="mb-3">
+            <label for="settingname" class="form-label">Setting name</label>
+            <input type="text"  value="{{appli_settings.setting_name}}"    name="setting_name" class="form-control" id="settingname">
+          </div>
+          <div class="mb-3">
+            <label for="settingvalue" class="form-label">Setting Value</label>
+            <input type="text" name="setting_value"  value="{{appli_settings.setting_value}}"    class="form-control" id="settingvalue">
+          </div class="mb-3">
+          <select name="is_enabled" id="cars">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select >
+          <button  type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        {% endblock content %}
+  
+  </body>
+</html>
